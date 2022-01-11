@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>4W Draft Data
+        </ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-list>
+        <ion-list-header>
+            <ion-label class="ion-text-wrap"><b>{{fwLocalDraftData?.length}}</b> items from : <b>{{facility?.name}}</b>
+            </ion-label>
+            <ion-icon slot="start" name="calendar"></ion-icon>
+        </ion-list-header>
+        <app-draft-data [fwLocalDraftData]="fwLocalDraftData"></app-draft-data>
+    </ion-list>
+
+</ion-content>

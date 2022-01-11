@@ -1,0 +1,37 @@
+ion-item {
+    --inner-padding-end: 6px;
+    --inner-padding-start: 6px;
+    --padding-start: 6px;
+    --padding-end: 6px;
+    ion-icon {
+        margin-inline-end: 4px;
+        margin-inline-start: 4px;
+    }
+    ion-note {
+        margin-inline-start: 8px;
+        padding-inline-start: 8px;
+    }
+}
+
+section {
+    padding-top: 20px;
+}
+
+.card-text {
+    width: 300px;
+}
+
+.weather-data {
+    border: 1px solid#cbc9c9;
+    padding: 50px;
+}
+
+.temperature {
+    font-size: 35px;
+}
+
+.number-text {
+    font-size: 25px;
+    font-weight: 650;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

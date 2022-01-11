@@ -1,0 +1,19 @@
+ion-item {
+    --inner-padding-end: 6px;
+    --inner-padding-start: 6px;
+    --padding-start: 6px;
+    --padding-end: 6px;
+    ion-icon {
+        margin-inline-end: 12px;
+    }
+    ion-note {
+        margin-inline-start: 8px;
+        padding-inline-start: 8px;
+        ;
+    }
+}
+
+ion-chip {
+    --color: #ffff;
+    font-weight: 600;
+}

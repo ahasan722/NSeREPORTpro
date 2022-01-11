@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title class="ion-text-center">Login</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="login-logo">
+        <img src="assets/org/lg_nutrition.png" alt="Ionic logo">
+    </div>
+
+    <form #loginForm="ngForm" novalidate>
+        <ion-list>
+            <ion-item>
+                <ion-label position="floating" color="primary">Email</ion-label>
+                <ion-input [(ngModel)]="login.useremail" name="useremail" type="email" clearInput="true" #useremail="ngModel" pattern="^.+@.+..+$" required>
+                </ion-input>
+            </ion-item>
+
+            <ion-text color="danger">
+                <p [hidden]="useremail.valid || submitted == false" class="validation-errors">
+                    Registered valid email is id required
+                </p>
+            </ion-text>
+
+            <ion-item>
+                <ion-label position="floating" color="primary">Password</ion-label>
+                <ion-input [(ngModel)]="login.password" clearInput="true" name="password" type="password" #password="ngModel" pattern=".{6,}" required>
+                </ion-input>
+            </ion-item>
+
+            <ion-text color="danger">
+                <p [hidden]="password.valid || submitted == false" class="validation-errors">
+                    Password is required
+                </p>
+            </ion-text>
+
+            <ion-item>
+                <ion-label>Remember Me</ion-label>
+                <ion-checkbox slot="start" [(ngModel)]="login.rememberMe" name="rememberMe"></ion-checkbox>
+            </ion-item>
+
+            <ion-button (click)="onLogin(loginForm)" type="submit" color="favorite" expand="block">Login</ion-button>
+
+        </ion-list>
+
+    </form>
+
+</ion-content>

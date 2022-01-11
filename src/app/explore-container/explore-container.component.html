@@ -1,0 +1,39 @@
+<div id="container">
+    <strong>{{ name }}</strong>
+    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI
+      Components</a></p>
+
+    <ion-item>
+        <ion-label>Celsius: </ion-label>
+        <ion-input (ngModelChange)="onChange($event, 'c')" type="number" class="large" data-test-id="celsius-input" [(ngModel)]="celsius"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Fahrenheit: </ion-label>
+        <ion-input (ngModelChange)="onChange($event, 'f')" type="number" class="large" data-test-id="fahrenheit-input" [(ngModel)]="fahrenheit"></ion-input>
+    </ion-item>
+
+
+
+    <ion-item>
+        <ion-label>Enter City: </ion-label>
+        <ion-input (ngModelChange)="onCityNameChange($event)" type="text" class="large ml-30" placeholder="Seattle" data-test-id="app-input" [(ngModel)]="cityName"></ion-input>
+    </ion-item>
+
+
+
+    <ion-item>
+        <ion-icon slot="end" name="partly-sunny"></ion-icon>
+        <ion-label>Weather Report</ion-label>
+    </ion-item>
+    <ion-item *ngIf="searchedData">
+        <ion-label>
+            Wind: {{searchedData.wind}} Humidity:{{searchedData.humidity}}
+        </ion-label>
+    </ion-item>
+    <ion-label *ngIf="cityName && !searchedData">No results found</ion-label>
+
+
+
+
+</div>

@@ -1,0 +1,66 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Grouped Draft Data
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="dismiss()">
+                <ion-icon name="close" slot="start"></ion-icon>Close
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-list>
+        <ion-list-header>
+            <ion-label class="ion-text-wrap"><b>{{groupedActivityDetailsData?.length}}</b> items from period: <b>{{period}}</b></ion-label>
+            <ion-icon slot="start" name="calendar"></ion-icon>
+        </ion-list-header>
+        <ion-card *ngFor="let data of groupedActivityDetailsData; let i = index;">
+            <ion-card-header class="ion-text-center" [color]="apiClient.getActivityColor(i)">
+
+                <ion-card-subtitle>
+                    {{data.activity_name}}
+                </ion-card-subtitle>
+                <ion-card-title class="ion-text-center">
+                    {{data.activity_detail_name}}
+                </ion-card-title>
+
+                <ion-card-subtitle class="ion-text-end">
+                    <p>Period: {{data.period }}</p>
+                </ion-card-subtitle>
+
+            </ion-card-header>
+            <ion-card-content class="bg-card">
+
+                <ion-chip [color]="apiClient.getActivityColor(i)">
+                    <ion-icon name="people"></ion-icon>
+                    <ion-label>Total Beneficiary {{data.reached_male+data.reached_female}}</ion-label>
+                </ion-chip>
+                <ion-chip [color]="apiClient.getActivityColor(i)" outline>
+                    <ion-icon name="woman"></ion-icon>
+                    <ion-label>Female {{data.reached_female}}</ion-label>
+                </ion-chip>
+                <ion-chip [color]="apiClient.getActivityColor(i)">
+                    <ion-icon name="man"></ion-icon>
+                    <ion-label>Male {{data.reached_male}}</ion-label>
+                </ion-chip>
+            </ion-card-content>
+        </ion-card>
+    </ion-list>
+
+
+
+
+</ion-content>
+
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-buttons slot="end">
+            <ion-button color="favorite" (click)="presentAlertConfirm()">Final Submission</ion-button>
+        </ion-buttons>
+
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,6 @@
+{
+	"appId": "org.nscxb.nserpro",
+	"appName": "NSeREPORTpro",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

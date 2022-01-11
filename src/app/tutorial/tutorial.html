@@ -1,0 +1,44 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-buttons slot="end">
+            <ion-button color='primary' (click)="startApp()" [hidden]="!showSkip">Skip</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+
+
+    <ion-slides #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager="true">
+        <ion-slide>
+            <img src="assets/org/lg_nutrition.png" class="slide-image" />
+            <h2 class="slide-title">
+                Welcome to
+                <b>NSeREPORTpro</b>
+            </h2>
+            <h5 class="slide-title">Nutrition Sector Emergency Report for Program Operation</h5>
+            <p><b>Humanitarian Response</b> in Cox's Bazar, Bangladesh</p>
+        </ion-slide>
+
+        <ion-slide>
+            <img src="assets/org/lg_iscg.png" class="slide-image" />
+            <h2 class="slide-title">ISCG 4W TOOLS?</h2>
+            <p>
+                <b>ISCG 4W</b> The Inter-Sector Coordination Group (ISCG) is the central coordination body for humanitarian agencies serving Rohingya refugees in Cox's Bazar, Bangladesh..</p>
+        </ion-slide>
+
+        <ion-slide>
+            <img src="assets/org/lg_nutrition.png" class="slide-image" />
+            <h2 class="slide-title">NSeREPORTpro
+            </h2>
+            <p>
+                <b>Copyright</b> Nutrition Sector - Cox's Bazar, Bangladesh.© 2021-2021 All rights reserved.</p>
+            <ion-button fill="clear" (click)="startApp()">
+                Start
+                <ion-icon slot="end" name="arrow-forward"></ion-icon>
+            </ion-button>
+        </ion-slide>
+
+
+    </ion-slides>
+</ion-content>

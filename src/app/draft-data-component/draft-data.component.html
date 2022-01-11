@@ -1,0 +1,44 @@
+<ion-card *ngFor="let data of fwLocalDraftData;let j = index">
+    <ion-card-header [color]="apiClient.getActivityColor(j)">
+        <ion-card-title class="ion-text-center">
+            <ion-icon src={{apiClient.getActivityIcon(j,storageService.getActivityName(data.activity_detail.activity_id))}}>
+            </ion-icon>
+            {{storageService.getActivityName(data.activity_detail.activity_id)}}
+
+        </ion-card-title>
+        <ion-card-subtitle class="ion-text-center">
+            {{storageService.getActivityDetailName(data.activity_detail.id)}}
+        </ion-card-subtitle>
+        <ion-card-subtitle class="ion-text-end">
+            <p>Updated: {{data.updated_at | date:'mediumDate'}}</p>
+            <p>Period: {{data.period }}</p>
+            <p>Remarks: {{data.remarks}}</p>
+        </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content class="bg-card">
+        <ion-chip [color]="apiClient.getActivityColor(j)">
+            <ion-icon name="people"></ion-icon>
+            <ion-label>Total Beneficiary {{data.activity_detail.male_value+data.activity_detail.female_value}}</ion-label>
+        </ion-chip>
+        <ion-chip [color]="apiClient.getActivityColor(j)" outline>
+            <ion-icon name="woman"></ion-icon>
+            <ion-label>Female {{data.activity_detail.female_value}}</ion-label>
+        </ion-chip>
+        <ion-chip [color]="apiClient.getActivityColor(j)">
+            <ion-icon name="man"></ion-icon>
+            <ion-label>Male {{data.activity_detail.male_value}}</ion-label>
+        </ion-chip>
+
+        <ion-buttons>
+            <ion-button (click)="editDraftData(data.period,data.activity_detail.pivot.facility_id,j)">
+                <ion-icon slot="icon-only" name="create"></ion-icon>
+            </ion-button>
+            <ion-button color="danger" (click)="deleteDraftData(j)">
+                <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-button>
+            <ion-button color="warning" (click)="draftDataFinalProcess(data.period,data.activity_detail.pivot.facility_id)">
+                <ion-icon slot="icon-only" name="cloud-upload"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-card-content>
+</ion-card>

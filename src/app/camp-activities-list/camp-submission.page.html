@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title> {{facility?.name}} Activities</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+    <ion-row class="ion-no-padding">
+        <ion-col size="6" sizeSm sizeMd sizeLg *ngFor="let activity of fwDraftSubmissionData?.activity; let i = index;">
+            <ion-card button (click)="openSubmissionForm(activity)">
+                <ion-card-content class="ion-text-center">
+                    <ion-img src={{apiClient.getActivityIcon(i,activity.name)}}></ion-img>
+                    <ion-card-subtitle [color]="apiClient.getActivityColor(i)" class="ion-text-center">
+                        {{activity.name}}
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>4W Final Data
+        </ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-list-header>
+            <ion-label class="ion-text-wrap">
+                <b>{{finalDataList?.length}}</b> items from :
+                <b>{{facility?.name}}</b>
+            </ion-label>
+        </ion-list-header>
+    </ion-list>
+    <ion-card *ngFor="let data of finalDataList; let i = index;">
+        <ion-item lines="none" [color]="apiClient.getActivityColor(i)">
+            <ion-icon size="large" slot="start" src={{apiClient.getActivityIcon(i,storageService.getActivityName(data.activity_id))}}>
+            </ion-icon>
+            <ion-label class="ion-text-wrap">{{storageService.getActivityName(data.activity_id)}}</ion-label>
+        </ion-item>
+        <ion-item lines="none" [color]="apiClient.getActivityColor(i)">
+            <ion-note slot="end" color="white">Status: {{data.activity_status}} | Beneficiaries: {{data.beneficiary_type}}
+            </ion-note>
+        </ion-item>
+        <ion-card-header [color]="apiClient.getActivityColor(i)">
+            <ion-card-subtitle class="ion-text-end">
+                <p>Created: {{data.created_at | date:'mediumDate'}}</p>
+                <p>Updated: {{data.updated_at | date:'mediumDate'}}</p>
+                <p>Period: {{data.period}}</p>
+            </ion-card-subtitle>
+            <ion-card-subtitle>
+                {{storageService.getActivityDetailName(data.activity_detail_id)}}
+            </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content class="bg-card">
+            <ion-chip [color]="apiClient.getActivityColor(i)">
+                <ion-icon name="people"></ion-icon>
+                <ion-label>Total Beneficiary:{{data.reached_male+data.reached_female}}</ion-label>
+            </ion-chip>
+            <ion-chip [color]="apiClient.getActivityColor(i)" outline>
+                <ion-icon name="woman"></ion-icon>
+                <ion-label>Female {{data.reached_female}}</ion-label>
+            </ion-chip>
+            <ion-chip [color]="apiClient.getActivityColor(i)">
+                <ion-icon name="man"></ion-icon>
+                <ion-label>Male {{data.reached_male}}</ion-label>
+            </ion-chip>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

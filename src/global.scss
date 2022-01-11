@@ -1,0 +1,71 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+
+/* Core CSS required for Ionic components to work properly */
+
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+//custom css
+$dark-color: #042642;
+$gray-dark: #222e3d;
+$gray-medium: #343a40;
+$gray: #6c757d;
+$alert-color: #e83e3e;
+.loading-css {
+    --background: rgb(197, 188, 188);
+    --spinner-color: #e83e3e;
+    color: $dark-color
+}
+
+.strong {
+    font-size: 18px;
+    line-height: 24px;
+    align-items: center;
+}
+
+.validation-errors {
+    padding-inline-start: 15px;
+    padding-inline-end: 12px;
+    color: $alert-color;
+    font-size: small;
+    font-weight: 500;
+}
+
+ion-chip {
+    --color: #ffff;
+    font-weight: 600;
+}
+
+ion-card-subtitle {
+    p {
+        font-weight: 600;
+        font-size: 86%;
+        padding: .1rem;
+        margin: .1rem;
+    }
+}
+
+.bg-card {}

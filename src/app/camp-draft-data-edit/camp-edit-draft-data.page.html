@@ -1,0 +1,91 @@
+<ion-header translucent="true">
+    <ion-toolbar>
+        <ion-title>
+            Edit Draft Data
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="dismiss()">
+                <ion-icon name="close" slot="start"></ion-icon>Close
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-card *ngIf="fwLocalDraftData">
+        <ion-card-header class="ion-text-center" [color]="apiClient.getActivityColor(index)">
+            <ion-card-subtitle>
+                {{fwLocalDraftData?.activity_detail?.name}}
+            </ion-card-subtitle>
+            <ion-card-title class="ion-text-center">
+                {{storageService.getActivityName(fwLocalDraftData?.activity_detail?.activity_id)}}
+            </ion-card-title>
+            <ion-card-subtitle class="ion-text-end">
+                <p>Created: {{fwLocalDraftData?.created_at | date:'mediumDate'}}</p>
+                <p>Remarks: {{fwLocalDraftData?.remarks}}</p>
+                <p>Period: {{fwLocalDraftData?.period }}</p>
+                <p>Updated: {{fwLocalDraftData?.updated_at | date:'mediumDate'}}</p>
+            </ion-card-subtitle>
+
+
+        </ion-card-header>
+
+        <ion-item *ngIf="period">
+            <ion-label position="floating" class="ion-text-wrap">Reporting Month* </ion-label>
+            <ion-datetime displayFormat="MMM, YYYY" pickerFormat="MMM-YYYY" [(ngModel)]="period">
+            </ion-datetime>
+        </ion-item>
+        <ion-text color="danger">
+            <p *ngIf="!fwLocalDraftData.period" class="validation-errors">
+                Period is required
+            </p>
+        </ion-text>
+
+        <ion-item>
+            <ion-label position="floating" class="ion-text-wrap">Remarks:*</ion-label>
+            <ion-input [(ngModel)]="fwLocalDraftData.remarks" placeholder="Put your remarks here" required clearInput="true">
+            </ion-input>
+        </ion-item>
+        <ion-text color="danger">
+            <p *ngIf="!fwLocalDraftData.remarks" class="validation-errors">
+                Remarks is required
+            </p>
+        </ion-text>
+
+        <ion-item>
+            <ion-label position="floating">Female</ion-label>
+            <ion-icon slot="start" name="woman"></ion-icon>
+            <ion-input type="number" required [(ngModel)]="fwLocalDraftData.activity_detail.female_value"></ion-input>
+        </ion-item>
+        <ion-text color="danger">
+            <p *ngIf="!fwLocalDraftData.activity_detail.female_value" class="validation-errors">
+                Female Value is required
+            </p>
+        </ion-text>
+        <ion-item>
+            <ion-label position="floating">Male</ion-label>
+            <ion-icon slot="start" name="man"></ion-icon>
+            <ion-input type="number" required [(ngModel)]="fwLocalDraftData.activity_detail.male_value"></ion-input>
+        </ion-item>
+        <ion-text color="danger">
+            <p *ngIf="!fwLocalDraftData.activity_detail.male_value" class="validation-errors">
+                Female Value is required
+            </p>
+        </ion-text>
+
+
+        <ion-button (click)="editLocalDraftDataItemByIndex()" color="success" expand="full">
+            Update
+            <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-button>
+
+    </ion-card>
+
+
+
+
+
+
+
+</ion-content>

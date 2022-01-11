@@ -1,0 +1,42 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-title>NSeREPORTpro</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+    <ion-row class="ion-no-padding">
+
+        <ion-col size="12" sizeSm sizeMd sizeLg="6" sizeXl="4" class="ion-no-padding" *ngFor="let facility of facilities; let i = index;">
+            <ion-card [color]="apiClient.getActivityColor(i)" mode="ios">
+                <ion-card-header class="ion-text-center">
+                    <ion-card-subtitle class="ion-text-center">
+                        <ion-icon size="large" [src]="apiClient.getCampIcon(i,facility.beneficiary_type)"></ion-icon>
+                    </ion-card-subtitle>
+                    <ion-card-subtitle>{{facility.ssid}}</ion-card-subtitle>
+                    <ion-card-title>{{facility.name}}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                </ion-card-content>
+
+                <ion-item lines="none" button detail="false" routerLink="/camp-submission/{{i}}">
+                    <ion-icon name="create" slot="start"></ion-icon>
+                    <ion-label>Submission</ion-label>
+                </ion-item>
+
+                <ion-item lines="none" button detail="false" routerLink="/camp-draft-data/{{i}}">
+                    <ion-icon name="document-text" slot="start"></ion-icon>
+                    <ion-label>Draft Data</ion-label>
+                </ion-item>
+                <ion-item lines="none" button detail="false" routerLink="/camp-final-data/{{i}}">
+                    <ion-icon name="server" slot="start"></ion-icon>
+                    <ion-label>Final Data</ion-label>
+                </ion-item>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+
+
+</ion-content>
